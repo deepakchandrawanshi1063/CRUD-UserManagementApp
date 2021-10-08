@@ -1,12 +1,27 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import Login from "./Login";
+import Homepage from "./Homepage";
 import reportWebVitals from './reportWebVitals';
+import { SnackbarProvider } from "notistack";
+import Slide from "@mui/material/Slide"
 
 ReactDOM.render(
   <React.StrictMode>
-    <Login />
+    <SnackbarProvider maxSnack={3} anchorOrigin={{
+        vertical: 'top',
+        horizontal: 'right',
+    }}
+    TransitionComponent={Slide}
+    iconVariant={{
+        success: '✅',
+        error: '✖️',
+        warning: '⚠️',
+        info: 'ℹ️',
+    }}
+    >
+    <Homepage />
+    </SnackbarProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );
